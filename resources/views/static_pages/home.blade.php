@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="jumbotron">
-        <h1>Hello Laravel</h1>
+        <h1>艾欧尼亚</h1>
         <p class="lead">
             Now you can see <a href="https://learnku.com/courses/laravel-essential-training">Laravel </a> homepage。
         </p>

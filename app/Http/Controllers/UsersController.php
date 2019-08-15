@@ -19,10 +19,14 @@ class UsersController extends Controller
         return view('users.show', compact('user'));
     }
 
-    //生成用户头像
-    public function gravatar($size = '100')
+    //用户创建
+    public function store(Request $request)
     {
-        $hash = md5(strtolower(trim($this->attributes['email'])));
-        return "http://www.gravatar.com/avatar/$hash?s=$size";
+        $this->validate($request, [
+            'name'      => 'required|max:50',
+            'email'     => 'required|email|unique:users|max:255',
+            'password'  => 'required|confirmed|min:6'
+        ]);
+        return;
     }
 }

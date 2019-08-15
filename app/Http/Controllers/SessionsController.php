@@ -32,4 +32,12 @@ class SessionsController extends Controller
             return redirect()->back()->withInput();
         }
     }
+
+    //注销
+    public function destory()
+    {
+        Auth::logout();
+        session()->flash('success', '注销成功!');
+        return redirect('login');
+    }
 }

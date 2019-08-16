@@ -27,9 +27,11 @@ class UsersController extends Controller
     }
 
     //展示个人信息
+    //我的微博动态
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        $statuses = $user->statuses()->orderBy('created_at', 'desc')->paginate(10);
+        return view('users.show', compact('user', 'statuses'));
     }
 
     //用户创建
@@ -128,4 +130,5 @@ class UsersController extends Controller
         session()->flash('success', '恭喜你，账号激活成功！');
         return redirect()->route('users.show', [$user]);
     }
+
 }

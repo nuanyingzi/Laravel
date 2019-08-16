@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
-    return $this->belongsTo(User::class);
+    protected $fillable = ['content'];
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
 }

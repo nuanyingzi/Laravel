@@ -42,7 +42,7 @@ class SessionsController extends Controller
     }
 
     //注销
-    public function destory()
+    public function destroy()
     {
         Auth::logout();
         session()->flash('success', '注销成功!');

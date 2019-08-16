@@ -131,4 +131,10 @@ class UsersController extends Controller
         return redirect()->route('users.show', [$user]);
     }
 
+    //所有微博动态
+    public function feed()
+    {
+        return $this->statuses()->orderBy('created_at', 'desc');
+    }
+
 }
